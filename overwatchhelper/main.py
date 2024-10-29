@@ -14,7 +14,6 @@ T11 = 'Zarya'
 
 
 #Damage
-
 A1 = 'Ashe'
 A2 = 'Bastion'
 A3 = 'Cassidy'
