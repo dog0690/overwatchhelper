@@ -11,7 +11,7 @@ T8 = 'Sigma'
 T9 = 'Winston'
 T10 = 'WreckingBall'
 T11 = 'Zarya'
-
+T12 = 'Orisa'
 
 #Damage
 A1 = 'Ashe'
@@ -45,3 +45,53 @@ S8 = 'Lucio'
 S9 = 'Mercy'
 S10 = 'Moira'
 S11 = 'Zenyatta'
+
+
+#Counterlist
+
+#Tank
+Dva =  [T11, T9, A14, A11, A2, S10]
+Doomfist =  [A13, A16, A2, A5, S1, S3]
+JunkerQueen =  [T10, A18, S1, S6, S8]
+Mauga =  [T2, T10, T4, A13, S11, S6]
+Orisa = [T1, T11, A8, A4, S10]
+Ramatra =  [T7, A10, A16, A9, A5, A3, S6]
+Reinhardt =  [A13, A3, A8, A7, A9, S11]
+Roadhog =  [T10, T7, A10, A4, A7, S1]
+Sigma =  [T8, T7, A5, A13, A16, S8]
+Winston =  [T1, A7, A9, A2, S1, S3]
+WreckingBall = [T7, T2, A8, A13, S1, S3] 
+Zarya =  [T1, A6, A18, A3, A16, S11]
+
+#Damage
+Ashe = []
+Bastion = []
+Cassidy = []
+Echo = []
+Genji = []
+Hanzo = []
+Junkrat = []
+Mei = []
+Pharah = []
+Reaper = []
+Sojourn = []
+Soldier76 = []
+Sombra = []
+Symmetra = []
+Tobjorn = []
+Tracer = []
+Venture = []
+Widowmaker = []
+
+#Support 
+Ana = []
+Baptiste = []
+Brigitte = []
+Illari = []
+Juno = []
+Kiriko = []
+Lifeweaver = []
+Lucio = []
+Mercy = []
+Moira = []
+Zenyatta = []
