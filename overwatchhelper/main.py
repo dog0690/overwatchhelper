@@ -1,4 +1,4 @@
-
+import os
 #Tanks
 T1 = 'Dva'
 T2 = 'Doomfist'
@@ -95,3 +95,30 @@ Lucio = [T7, T9, A12, A3, A14, A15, A8, S10]
 Mercy = [T9, T7, A4, A3, A18, A5, A16]
 Moira = [T7, T11, A4, A9, A18, A7, A8, A1, S1]
 Zenyatta = [A7, A9, A3, A18, A1, A16, A6, S6, S11]
+
+
+#Functions
+
+#First Prompt
+def main():
+    i = 0
+    ch = list(range(5))
+    while i < 5:
+        i +=1
+        clear_terminal()
+        print(f"what are you up against? {i}")
+        enemies = input("")
+        ch[i-1] = enemies
+        clear_terminal()
+    print("The team you are against are:\n")
+    for item in ch:
+        print(item)
+
+def ch_sel():
+    pass
+
+
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+main()
