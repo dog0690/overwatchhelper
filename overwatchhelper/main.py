@@ -96,6 +96,8 @@ Mercy = [T9, T7, A4, A3, A18, A5, A16]
 Moira = [T7, T11, A4, A9, A18, A7, A8, A1, S1]
 Zenyatta = [A7, A9, A3, A18, A1, A16, A6, S6, S11]
 
+counter_list = [Dva,Doomfist,JunkerQueen,Mauga,Orisa,Ramatra,Reinhardt,Roadhog,Sigma,Winston,WreckingBall,Zarya,Ashe,Bastion,Cassidy,Echo,Genji,Hanzo,Junkrat,Mei,Pharah,Reaper,Sojourn,Soldier76,Sombra,Symmetra,Tobjorn,Tracer,Venture,Widowmaker,Ana,Baptiste,Brigitte,Illari,Juno,Kiriko,Lifeweaver,Lucio,Mercy,Moira,Zenyatta,]
+ghost_list = list(range(5))
 
 #Functions
 
@@ -110,7 +112,7 @@ def main():
         enemies = input("")
         ch[i-1] = enemies
         clear_terminal()
-    print("The team you are against are:\n")
+    print("The team you're against are:\n")
     for item in ch:
         print(item)
 
