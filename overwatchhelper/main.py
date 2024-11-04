@@ -96,31 +96,33 @@ Mercy = [T9, T7, A4, A3, A18, A5, A16]
 Moira = [T7, T11, A4, A9, A18, A7, A8, A1, S1]
 Zenyatta = [A7, A9, A3, A18, A1, A16, A6, S6, S11]
 
-counter_list = [Dva,Doomfist,JunkerQueen,Mauga,Orisa,Ramatra,Reinhardt,Roadhog,Sigma,Winston,WreckingBall,Zarya,Ashe,Bastion,Cassidy,Echo,Genji,Hanzo,Junkrat,Mei,Pharah,Reaper,Sojourn,Soldier76,Sombra,Symmetra,Tobjorn,Tracer,Venture,Widowmaker,Ana,Baptiste,Brigitte,Illari,Juno,Kiriko,Lifeweaver,Lucio,Mercy,Moira,Zenyatta,]
-ghost_list = list(range(5))
 
+counter_list = [Dva,Doomfist,JunkerQueen,Mauga,Orisa,Ramatra,Reinhardt,Roadhog,Sigma,Winston,WreckingBall,Zarya,Ashe,Bastion,Cassidy,Echo,Genji,Hanzo,Junkrat,Mei,Pharah,Reaper,Sojourn,Soldier76,Sombra,Symmetra,Tobjorn,Tracer,Venture,Widowmaker,Ana,Baptiste,Brigitte,Illari,Juno,Kiriko,Lifeweaver,Lucio,Mercy,Moira,Zenyatta,]
+counter_list2 = ['Dva','Doomfist','JunkerQueen','Mauga','Ramatra','Reinhardt','Roadhog','Sigma','Winston','WreckingBall','Zarya','Orisa','Ashe','Bastion','Cassidy','Echo','Genji','Hanzo','Junkrat','Mei','Pharah','Reaper','Sojourn','Soldier76','Sombra','Symmetra','Tobjorn','Tracer','Venture','Widowmaker','Ana','Baptiste','Brigitte','Illari','Juno','Kiriko','Lifeweaver','Lucio','Mercy','Moira','Zenyatta']
+ghost_list = list(range(5))
+ch = list(range(5))
+counter_count = len(counter_list)
 #Functions
 
 #First Prompt
-def main():
-    i = 0
-    ch = list(range(5))
+def ch_sel():
+    i =0
     while i < 5:
         i +=1
-        clear_terminal()
         print(f"what are you up against? {i}")
         enemies = input("")
         ch[i-1] = enemies
-        clear_terminal()
-    print("The team you're against are:\n")
-    for item in ch:
-        print(item)
-
-def ch_sel():
-    pass
-
+    return ch
+def main(ch):
+    ch_list = ch
+    list_len = len(ch_list)
+    for i in range (list_len):
+        for k in range(counter_count):
+            if ch_list[i] == counter_list2[k]:
+                ghost_list[i] = counter_list [k]
+                print(f"{ghost_list[i]}, {i}")
 
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-main()
+main(ch_sel())

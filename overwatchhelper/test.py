@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 #names
 t1 = 'boongo'
 t2 = 'batman'
@@ -10,27 +13,34 @@ tracer = [t3, t4]
 ch_list = [tracer,Dva,t3]
 cha_count = len(ch_list)
 #counter list
-comp_list = [Dva, tracer]
+comp_list2 = [Dva, tracer]
+comp_list = ["Dva", "tracer"]
 counter_count = len(comp_list)
 #buffer list
 ghost_list = list(range(5))
-def main():
-
-    for i in range (cha_count):
+ch = list(range(5))
+enemy = [Dva, tracer]
+def ch_sel():
+    i =0
+    while i < 5:
+        i +=1
+        print(f"what are you up against? {i}")
+        enemies = input("")
+        ch[i-1] = enemies
+    return ch
+def ghost_list1(ch):
+    ch_list = ch
+    list_len = len(ch_list)
+    for i in range (list_len):
         for k in range(counter_count):
             if ch_list[i] == comp_list[k]:
-                ghost_list[i] = comp_list [k]
+                ghost_list[i] = comp_list2 [k]
                 print(f"{ghost_list[i]}, {i}")
-    #i = 0
-    #k = 0
-    #while i < cha_count:
-    #    while k < counter_count:
-    #        if ch_list[i] == comp_list[k]:
-    #            ghost_list[i] = comp_list [k]
-    #            print(ghost_list[i])
-    #        else:
-    #            k += 1
-    #        print(f"working on {i} {k}")
-    #        break
-    #    i +=1
-main()
+    return(ghost_list1)
+tallyitem = [Dva, tracer]
+def tally(items):
+    counts = defaultdict(int)
+    for item in items:
+        counts[item] += 1
+    return counts
+print(tally(tallyitem[0]))
