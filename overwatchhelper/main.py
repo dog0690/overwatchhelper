@@ -1,4 +1,6 @@
 import os
+from collections import defaultdict
+from collections import Counter
 #Tanks
 T1 = 'Dva'
 T2 = 'Doomfist'
@@ -96,7 +98,7 @@ Mercy = [T9, T7, A4, A3, A18, A5, A16]
 Moira = [T7, T11, A4, A9, A18, A7, A8, A1, S1]
 Zenyatta = [A7, A9, A3, A18, A1, A16, A6, S6, S11]
 
-
+Test_list = ['Dva', 'JunkerQueen', 'Ana', 'Mercy', 'Moira' ]
 counter_list = [Dva,Doomfist,JunkerQueen,Mauga,Orisa,Ramatra,Reinhardt,Roadhog,Sigma,Winston,WreckingBall,Zarya,Ashe,Bastion,Cassidy,Echo,Genji,Hanzo,Junkrat,Mei,Pharah,Reaper,Sojourn,Soldier76,Sombra,Symmetra,Tobjorn,Tracer,Venture,Widowmaker,Ana,Baptiste,Brigitte,Illari,Juno,Kiriko,Lifeweaver,Lucio,Mercy,Moira,Zenyatta,]
 counter_list2 = ['Dva','Doomfist','JunkerQueen','Mauga','Ramatra','Reinhardt','Roadhog','Sigma','Winston','WreckingBall','Zarya','Orisa','Ashe','Bastion','Cassidy','Echo','Genji','Hanzo','Junkrat','Mei','Pharah','Reaper','Sojourn','Soldier76','Sombra','Symmetra','Tobjorn','Tracer','Venture','Widowmaker','Ana','Baptiste','Brigitte','Illari','Juno','Kiriko','Lifeweaver','Lucio','Mercy','Moira','Zenyatta']
 ghost_list = list(range(5))
@@ -113,16 +115,37 @@ def ch_sel():
         enemies = input("")
         ch[i-1] = enemies
     return ch
-def main(ch):
+    clear_terminal()
+def conversion(ch):
     ch_list = ch
     list_len = len(ch_list)
     for i in range (list_len):
         for k in range(counter_count):
             if ch_list[i] == counter_list2[k]:
                 ghost_list[i] = counter_list [k]
-                print(f"{ghost_list[i]}, {i}")
-
+    return(ghost_list)
+def inner_tally(items):
+    counts = defaultdict(int)
+    i = 0
+    while i < 5:
+        for item in items[i]:
+            counts[item] +=1
+        i +=1
+        clear_terminal()
+        print(counts)
+    return(counts)
+def sort_tally(data):
+    counts = Counter(data)
+    sorted_by_frequency = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+    clear_terminal()
+    return(sorted_by_frequency)    
+def main():
+    enemies = ch_sel()
+    converted_list = conversion(enemies)
+    tally_list = inner_tally(converted_list)
+    sorted = sort_tally(tally_list)
+    for i in range(5):
+        print(sorted[i])
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
-
-main(ch_sel())
+main()
