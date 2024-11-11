@@ -1,6 +1,60 @@
 import os
 from collections import defaultdict
 from collections import Counter
+from rich.console import Console
+from rich.table import Table
+tanks = [
+    "T1 = Dva",
+    "T2 = Doomfist",
+    "T3 = JunkerQueen",
+    "T4 = Mauga",
+    "T5 = Ramatra",
+    "T6 = Reinhardt",
+    "T7 = Roadhog",
+    "T8 = Sigma",
+    "T9 = Winston",
+    "T10 = WreckingBall",
+    "T11 = Zarya",
+    "T12 = Orisa",
+    "","","","","","", ""
+]
+damage = [
+    "A1 = Ashe",
+    "A2 = Bastion",
+    "A3 = Cassidy",
+    "A4 = Echo",
+    "A5 = Genji",
+    "A6 = Hanzo",
+    "A7 = Junkrat",
+    "A8 = Mei",
+    "A9 = Pharah",
+    "A10 = Reaper",
+    "A11 = Sojourn",
+]
+damage2 = [
+    "A12 = Soldier76",
+    "A13 = Sombra",
+    "A14 = Symmetra",
+    "A15 = Tobjorn",
+    "A16 = Tracer",
+    "A17 = Venture",
+    "A18 = Widowmaker",
+]
+
+support = [
+    "S1 = Ana",
+    "S2 = Baptiste",
+    "S3 = Brigitte",
+    "S4 = Illari",
+    "S5 = Juno",
+    "S6 = Kiriko",
+    "S7 = Lifeweaver",
+    "S8 = Lucio",
+    "S9 = Mercy",
+    "S10 = Moira",
+    "S11 = Zenyatta",
+    "","","","","","", " "
+]
 #Tanks
 T1 = 'Dva'
 T2 = 'Doomfist'
@@ -98,18 +152,23 @@ Mercy = [T9, T7, A4, A3, A18, A5, A16]
 Moira = [T7, T11, A4, A9, A18, A7, A8, A1, S1]
 Zenyatta = [A7, A9, A3, A18, A1, A16, A6, S6, S11]
 
-Test_list = ['Dva', 'JunkerQueen', 'Ana', 'Mercy', 'Moira' ]
-counter_list = [Dva,Doomfist,JunkerQueen,Mauga,Orisa,Ramatra,Reinhardt,Roadhog,Sigma,Winston,WreckingBall,Zarya,Ashe,Bastion,Cassidy,Echo,Genji,Hanzo,Junkrat,Mei,Pharah,Reaper,Sojourn,Soldier76,Sombra,Symmetra,Tobjorn,Tracer,Venture,Widowmaker,Ana,Baptiste,Brigitte,Illari,Juno,Kiriko,Lifeweaver,Lucio,Mercy,Moira,Zenyatta,]
-counter_list2 = ['Dva','Doomfist','JunkerQueen','Mauga','Ramatra','Reinhardt','Roadhog','Sigma','Winston','WreckingBall','Zarya','Orisa','Ashe','Bastion','Cassidy','Echo','Genji','Hanzo','Junkrat','Mei','Pharah','Reaper','Sojourn','Soldier76','Sombra','Symmetra','Tobjorn','Tracer','Venture','Widowmaker','Ana','Baptiste','Brigitte','Illari','Juno','Kiriko','Lifeweaver','Lucio','Mercy','Moira','Zenyatta']
+Test_list = ('Dva', 'JunkerQueen', 'Ana', 'Mercy', 'Moira' )
+counter_list = (Dva,Doomfist,JunkerQueen,Mauga,Orisa,Ramatra,Reinhardt,Roadhog,Sigma,Winston,WreckingBall,Zarya,Ashe,Bastion,Cassidy,Echo,Genji,Hanzo,Junkrat,Mei,Pharah,Reaper,Sojourn,Soldier76,Sombra,Symmetra,Tobjorn,Tracer,Venture,Widowmaker,Ana,Baptiste,Brigitte,Illari,Juno,Kiriko,Lifeweaver,Lucio,Mercy,Moira,Zenyatta,)
+counter_list3 = ("T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "A12", "A13", "A14", "A15", "A16", "A17", "A18", "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11",)
+counter_list2 = ('Dva','Doomfist','JunkerQueen','Mauga','Ramatra','Reinhardt','Roadhog','Sigma','Winston','WreckingBall','Zarya','Orisa','Ashe','Bastion','Cassidy','Echo','Genji','Hanzo','Junkrat','Mei','Pharah','Reaper','Sojourn','Soldier76','Sombra','Symmetra','Tobjorn','Tracer','Venture','Widowmaker','Ana','Baptiste','Brigitte','Illari','Juno','Kiriko','Lifeweaver','Lucio','Mercy','Moira','Zenyatta')
 ghost_list = list(range(5))
 ch = list(range(5))
 counter_count = len(counter_list)
+console = Console()
+
 #Functions
 
 #First Prompt
 def ch_sel():
     i =0
     while i < 5:
+        clear_terminal()
+        prompt()
         i +=1
         print(f"what are you up against? {i}")
         enemies = input("")
@@ -121,9 +180,10 @@ def conversion(ch):
     list_len = len(ch_list)
     for i in range (list_len):
         for k in range(counter_count):
-            if ch_list[i] == counter_list2[k]:
+            if ch_list[i] == counter_list3[k]:
                 ghost_list[i] = counter_list [k]
     return(ghost_list)
+
 def inner_tally(items):
     counts = defaultdict(int)
     i = 0
@@ -146,6 +206,25 @@ def main():
     sorted = sort_tally(tally_list)
     for i in range(5):
         print(sorted[i])
+
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
+def prompt():
+    table = Table(show_header= True)
+
+    table.add_column("tanks", justify="left", style="cyan", no_wrap=True)
+    table.add_column("damage", justify = "left", style="red")
+    table.add_column("damage", justify = "left", style="red")
+    table.add_column("support", justify="left", style="green")
+    
+    for tank, dam, dam2, sup in zip(tanks, damage,damage2,  support):
+        table.add_row(tank, dam, dam2, sup)
+    
+    console.print(table)
+def end_table(name, number):
+    table = Table(show_header=True)
+    table.add_column("Counter", justify="left")
+    table.add_column("#", justify = "left")
+    console.print(table)
+
 main()
