@@ -53,9 +53,6 @@ support = [
 
 table = Table(show_header= True)
 
-# table.add_column("Tanks")
-# table.add_column("Damage")
-# table.add_column("Support")
 table.add_column("tanks", justify="left", style="cyan", no_wrap=True)
 table.add_column("damage", style="red")
 table.add_column("support", justify="right", style="green")

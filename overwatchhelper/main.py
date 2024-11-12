@@ -30,6 +30,7 @@ damage = [
     "A9 = Pharah",
     "A10 = Reaper",
     "A11 = Sojourn",
+    ""
 ]
 damage2 = [
     "A12 = Soldier76",
@@ -39,6 +40,7 @@ damage2 = [
     "A16 = Tracer",
     "A17 = Venture",
     "A18 = Widowmaker",
+    "","","","","","", " "
 ]
 
 support = [
